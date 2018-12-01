@@ -24,17 +24,20 @@ public class SpringBoot02ConfigApplicationTests {
 
 	@Test
 	public void contextLoads() {
-//		System.out.println(person);
 		System.out.println(personProperties);
 	}
 
 	@Test
 	public void testHelloService() {
-		// 
+		//
 		boolean flag = ioc.containsBean("helloService");
 		// false 说明Spring Boot里面没有Spring的配置文件，我们自己编写的配置文件，也不能自动识别
 		// 想让Spring的配置文件生效，加载进来 需要@ImportResource
 		System.out.println(flag);
 	}
 
+	@Test
+	public void propertiesRandom() {
+		System.out.println(person);
+	}
 }

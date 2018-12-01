@@ -1,17 +1,24 @@
+
 server:
   port: 8081
+spring:
+  profiles:
+    active: prod
+#下面必须是三个-多了报错
+---
 
-person:
-#  lastName: 林小米
-  last-name: 林小米
-  age: 25
-  boss: false
-  birth: 1993/09/24
-  maps: {k1: v1,k2: v2}
-  lists:
-    - 李四
-    - 王五
-    - 赵六
-  dog:
-    name: 旺财
-    age: 3
+server:
+  port: 8083
+
+spring:
+  profiles: dev
+
+---
+
+server:
+  port: 8084
+
+spring:
+  profiles: prod
+
+---

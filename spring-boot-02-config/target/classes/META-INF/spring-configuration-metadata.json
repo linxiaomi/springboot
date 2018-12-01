@@ -2,29 +2,24 @@
   "groups": [
     {
       "name": "person",
-      "type": "com.linxiaomi.springboot.bean.PersonProperties",
-      "sourceType": "com.linxiaomi.springboot.bean.PersonProperties"
+      "type": "com.linxiaomi.springboot.bean.Person",
+      "sourceType": "com.linxiaomi.springboot.bean.Person"
     },
     {
       "name": "person",
-      "type": "com.linxiaomi.springboot.bean.Person",
-      "sourceType": "com.linxiaomi.springboot.bean.Person"
+      "type": "com.linxiaomi.springboot.bean.PersonProperties",
+      "sourceType": "com.linxiaomi.springboot.bean.PersonProperties"
     }
   ],
   "properties": [
     {
       "name": "person.age",
       "type": "java.lang.Integer",
-      "sourceType": "com.linxiaomi.springboot.bean.PersonProperties"
+      "sourceType": "com.linxiaomi.springboot.bean.Person"
     },
     {
       "name": "person.age",
       "type": "java.lang.Integer",
-      "sourceType": "com.linxiaomi.springboot.bean.Person"
-    },
-    {
-      "name": "person.birth",
-      "type": "java.util.Date",
       "sourceType": "com.linxiaomi.springboot.bean.PersonProperties"
     },
     {
@@ -33,8 +28,8 @@
       "sourceType": "com.linxiaomi.springboot.bean.Person"
     },
     {
-      "name": "person.boss",
-      "type": "java.lang.Boolean",
+      "name": "person.birth",
+      "type": "java.util.Date",
       "sourceType": "com.linxiaomi.springboot.bean.PersonProperties"
     },
     {
@@ -43,8 +38,8 @@
       "sourceType": "com.linxiaomi.springboot.bean.Person"
     },
     {
-      "name": "person.dog",
-      "type": "com.linxiaomi.springboot.bean.Dog",
+      "name": "person.boss",
+      "type": "java.lang.Boolean",
       "sourceType": "com.linxiaomi.springboot.bean.PersonProperties"
     },
     {
@@ -53,13 +48,24 @@
       "sourceType": "com.linxiaomi.springboot.bean.Person"
     },
     {
-      "name": "person.last-name",
-      "type": "java.lang.String",
+      "name": "person.dog",
+      "type": "com.linxiaomi.springboot.bean.Dog",
       "sourceType": "com.linxiaomi.springboot.bean.PersonProperties"
     },
     {
       "name": "person.last-name",
       "type": "java.lang.String",
+      "description": "<bean class=\"Person\">     <property name=\"lastName\" value=\"字面量\/{key}从环境变量、配置文件中取值\/#{SpEL}\"><\/property> <\/bean>",
+      "sourceType": "com.linxiaomi.springboot.bean.Person"
+    },
+    {
+      "name": "person.last-name",
+      "type": "java.lang.String",
+      "sourceType": "com.linxiaomi.springboot.bean.PersonProperties"
+    },
+    {
+      "name": "person.lists",
+      "type": "java.util.List<java.lang.Object>",
       "sourceType": "com.linxiaomi.springboot.bean.Person"
     },
     {
@@ -68,19 +74,14 @@
       "sourceType": "com.linxiaomi.springboot.bean.PersonProperties"
     },
     {
-      "name": "person.lists",
-      "type": "java.util.List<java.lang.Object>",
+      "name": "person.maps",
+      "type": "java.util.Map<java.lang.String,java.lang.Object>",
       "sourceType": "com.linxiaomi.springboot.bean.Person"
     },
     {
       "name": "person.maps",
       "type": "java.util.Map<java.lang.String,java.lang.Object>",
       "sourceType": "com.linxiaomi.springboot.bean.PersonProperties"
-    },
-    {
-      "name": "person.maps",
-      "type": "java.util.Map<java.lang.String,java.lang.Object>",
-      "sourceType": "com.linxiaomi.springboot.bean.Person"
     }
   ],
   "hints": []

@@ -16,7 +16,7 @@ import java.util.Map;
  * 只有这个组件是容器中的组件，才有容器提供的功能
  */
 @Component
-//@ConfigurationProperties(prefix = "person")
+@ConfigurationProperties(prefix = "person")
 public class Person {
 
     /**
