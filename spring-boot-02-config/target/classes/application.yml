@@ -1,0 +1,17 @@
+server:
+  port: 8081
+
+person:
+#  lastName: 林小米
+  last-name: 林小米
+  age: 25
+  boss: false
+  birth: 1993/09/24
+  maps: {k1: v1,k2: v2}
+  lists:
+    - 李四
+    - 王五
+    - 赵六
+  dog:
+    name: 旺财
+    age: 3
