@@ -53,7 +53,7 @@
               <caret line="18" column="23" lean-forward="false" selection-start-line="18" selection-start-column="18" selection-end-line="18" selection-end-column="23" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <marker date="1546329610274" expanded="true" signature="619:643" ph="select * FRO... department" />
+                <marker date="1546338532388" expanded="true" signature="619:643" ph="select * FRO... department" />
               </folding>
             </state>
           </provider>
@@ -344,7 +344,7 @@
       <option name="presentableId" value="Default" />
       <updated>1546328652631</updated>
       <workItem from="1546328665088" duration="1710000" />
-      <workItem from="1546330798612" duration="5044000" />
+      <workItem from="1546330798612" duration="5244000" />
     </task>
     <servers />
   </component>
@@ -360,7 +360,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="6754000" />
+    <option name="totallyTimeSpent" value="6954000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
@@ -439,7 +439,7 @@
           <caret line="18" column="23" lean-forward="false" selection-start-line="18" selection-start-column="18" selection-end-line="18" selection-end-column="23" />
           <folding>
             <element signature="imports" expanded="true" />
-            <marker date="1546329610274" expanded="true" signature="619:643" ph="select * FRO... department" />
+            <marker date="1546338532388" expanded="true" signature="619:643" ph="select * FRO... department" />
           </folding>
         </state>
       </provider>
@@ -461,7 +461,7 @@
           <caret line="18" column="23" lean-forward="false" selection-start-line="18" selection-start-column="18" selection-end-line="18" selection-end-column="23" />
           <folding>
             <element signature="imports" expanded="true" />
-            <marker date="1546329610274" expanded="true" signature="619:643" ph="select * FRO... department" />
+            <marker date="1546338532388" expanded="true" signature="619:643" ph="select * FRO... department" />
           </folding>
         </state>
       </provider>
