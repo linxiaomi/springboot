@@ -5,7 +5,7 @@ public class Employee {
     private Integer id;
     private String lastName;
     private Integer gender;
-    private String emali;
+    private String email;
     private Integer dId;
 
     public Integer getId() {
@@ -32,12 +32,12 @@ public class Employee {
         this.gender = gender;
     }
 
-    public String getEmali() {
-        return emali;
+    public String getEmail() {
+        return email;
     }
 
-    public void setEmali(String emali) {
-        this.emali = emali;
+    public void setEmail(String email) {
+        this.email = email;
     }
 
     public Integer getdId() {
