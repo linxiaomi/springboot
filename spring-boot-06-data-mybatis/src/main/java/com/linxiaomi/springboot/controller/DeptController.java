@@ -19,7 +19,7 @@ public class DeptController {
     EmployeeMapper employeeMapper;
 
     @GetMapping("/dept/{id}")
-    public Department getDepartment(@PathVariable("id") Integer id) {
+    public Department getDepartment(Integer id) {
         return departmentMapper.getDeptById(id);
     }
 
