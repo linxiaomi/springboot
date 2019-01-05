@@ -1,0 +1,4 @@
+org.springframework.context.ApplicationContextInitializer=\
+com.linxiaomi.springboot.listener.HelloApplicationContextListener
+org.springframework.boot.SpringApplicationRunListener=\
+com.linxiaomi.springboot.listener.HelloSpringApplicationRunListener
