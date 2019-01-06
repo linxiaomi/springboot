@@ -3,6 +3,7 @@ package com.linxiaomi.cache.service;
 import com.linxiaomi.cache.bean.Employee;
 import com.linxiaomi.cache.mapper.EmployeeMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.CacheEvict;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 
@@ -64,9 +65,55 @@ public class EmployeeService {
      */
 //    @Cacheable(cacheNames = {"emp"}, key = "#root.methodName+'['+#id+']'")
 //    @Cacheable(cacheNames = {"emp"}, keyGenerator = "myKeyGenerator") // 使用自定义的keyGenerator
-    @Cacheable(cacheNames = {"emp"}, keyGenerator = "myKeyGenerator", condition = "#a0>1", unless = "#a0==2") // 指定
+//    @Cacheable(cacheNames = {"emp"}, keyGenerator = "myKeyGenerator", condition = "#a0>1", unless = "#a0==2") // 指定
+    @Cacheable(cacheNames = {"emp"}) // 指定
     public Employee getEmp(Integer id) {
         System.out.println("查询"+id+"号员工");
         return employeeMapper.getEmpById(id);
+    }
+
+    /**
+     * @CachePut: 既调用方法,又更新缓存数据
+     * 修改了数据库的某个数据,同时更新缓存;
+     * 运行时机:
+     *   1、先调用目标方法
+     *   2、将目标方法的结果缓存起来
+     * 测试步骤：
+     *   1、查询1号员工:查到的结果会放在缓存中
+     *      key:1 value:lastName：张三
+     *   2、以后的查询还是之前的结果
+     *   3、更新后的lastName:zhangsan gender:0
+     *      将方法的返回值也放进缓存中
+     *      key:传入的employee对象 值:返回的employee对象
+     *   4、再次查询1号员工
+     *      应该是更新后的员工
+     *         key = "employee.id":使用传入的参数的员工id
+     *         key = "result.id":使用返回后的id
+     *         @Cachable 的key是不能用#result
+     *      为什么是没更新的？ 1号员工没有在缓存中更新
+     */
+    @Cacheable(value="emp", key="#employee.id")
+    public Employee updateEmp(Employee employee) {
+        System.out.println("updateEmp : " + employee);
+        employeeMapper.updateEmp(employee);
+        return employee;
+    }
+
+    /**
+     * @CacheEvict : 缓存删除
+     * key:指定要清除的数据
+     * allEntries = true:指定清除这个缓存中所有的数据
+     * beforeInvocation = false:缓存的清除是否在方法之前执行
+     *   默认代表是在方法执行之后执行
+     * beforeInvocation = true
+     *   代表清除缓存操作是在方法运行之前执行,无论方法是否出现异常,缓存都清楚
+     * @param id
+     */
+//    @CacheEvict(value = "emp", key = "#id")
+    @CacheEvict(value = "emp", allEntries = true)
+    public void deleteEmp(Integer id) {
+        System.out.println("deleteEmp : " + id);
+//        employeeMapper.deleteEmpById(id);
+        int i = 100 / 0;
     }
 }
