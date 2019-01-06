@@ -3,10 +3,10 @@ package com.linxiaomi.cache.service;
 import com.linxiaomi.cache.bean.Employee;
 import com.linxiaomi.cache.mapper.EmployeeMapper;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.cache.annotation.CacheEvict;
-import org.springframework.cache.annotation.Cacheable;
+import org.springframework.cache.annotation.*;
 import org.springframework.stereotype.Service;
 
+@CacheConfig(cacheNames="emp") // 抽取缓存的公共配置
 @Service
 public class EmployeeService {
 
@@ -92,7 +92,8 @@ public class EmployeeService {
      *         @Cachable 的key是不能用#result
      *      为什么是没更新的？ 1号员工没有在缓存中更新
      */
-    @Cacheable(value="emp", key="#employee.id")
+//    @Cacheable(value="emp", key="#employee.id")
+    @Cacheable(/*value="emp",*/ key="#employee.id")
     public Employee updateEmp(Employee employee) {
         System.out.println("updateEmp : " + employee);
         employeeMapper.updateEmp(employee);
@@ -110,10 +111,38 @@ public class EmployeeService {
      * @param id
      */
 //    @CacheEvict(value = "emp", key = "#id")
-    @CacheEvict(value = "emp", allEntries = true)
+//    @CacheEvict(value = "emp", allEntries = true)
+    @CacheEvict(/*value = "emp",*/ allEntries = true)
     public void deleteEmp(Integer id) {
         System.out.println("deleteEmp : " + id);
 //        employeeMapper.deleteEmpById(id);
         int i = 100 / 0;
+    }
+
+    /**
+     * 定义复杂的缓存注解
+     * @param lastName
+     * @return
+     */
+//    @Caching(
+//            cacheable = {
+//                    @Cacheable(value="emp", key="#lastName")
+//            },
+//            put = {
+//                    @CachePut(value="emp", key="#result.id"),
+//                    @CachePut(value="emp", key="#result.email")
+//            }
+//    )
+    @Caching(
+            cacheable = {
+                    @Cacheable(/*value="emp",*/ key="#lastName")
+            },
+            put = {
+                    @CachePut(/*value="emp",*/ key="#result.id"),
+                    @CachePut(/*value="emp",*/ key="#result.email")
+            }
+    )
+    public Employee getEmpByLastName(String lastName) {
+        return employeeMapper.getEmpByLastName(lastName);
     }
 }
