@@ -1,6 +1,8 @@
 package com.linxiaomi.elastic;
 
 import com.linxiaomi.elastic.bean.Article;
+import com.linxiaomi.elastic.bean.Book;
+import com.linxiaomi.elastic.repository.BookRepository;
 import io.searchbox.client.JestClient;
 import io.searchbox.core.Index;
 import io.searchbox.core.Search;
@@ -19,6 +21,22 @@ public class SpringbootElasticApplicationTests {
 
 	@Autowired
 	JestClient jestClient;
+
+	@Autowired
+	BookRepository bookRepository;
+
+	@Test
+	public void test01() {
+		Book book = new Book();
+		book.setId(1);
+		book.setBookName("红楼梦");
+		book.setAuthor("曹雪芹");
+		bookRepository.index(book);
+
+		for (Book book : bookRepository.findByBookNameLike("红")) {
+			System.out.println(book.getBookName());
+		}
+	}
 
 	@Test
 	public void contextLoads() {
