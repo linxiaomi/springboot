@@ -18,16 +18,25 @@ public class MySecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/level3/**").hasRole("VIP3");
 
         // 开启启动配置登录功能，如果没有登录，没有权限就会来到登录页面
-        http.formLogin();
+//        http.formLogin().usernameParameter("user").passwordParameter("pwd").
+//                loginPage("/user/login").loginProcessingUrl("/login");
+        http.formLogin().usernameParameter("user").passwordParameter("pwd").
+                loginPage("/login");
         // 1、login来到登录页面
         // 2、重定向/login?error表示登录失败
         // 3、更多详细规定
+        // 4、默认post形式的/login代表处理登录
+        // 5、一旦定制loginPage:那么loginPage的post请求就是登录
 
         // 开启自动配置的注销功能
         http.logout().logoutSuccessUrl("/"); // 注销成功后来到首页
         // 1、访问 /logout 表示用户注销,清空session
         // 2、注销成功会返回 /login?logout页面
 
+        // 开启记住我功能
+        http.rememberMe().rememberMeParameter("remember");
+        // 登录成功后将cookie发给浏览器保存,以后访问页面带上这个cookie,只要通过检查就可以免登录
+        // 点击注销会删除cookie
     }
 
     @Override
