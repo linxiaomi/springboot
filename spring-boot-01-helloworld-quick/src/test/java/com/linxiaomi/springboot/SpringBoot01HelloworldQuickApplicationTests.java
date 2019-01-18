@@ -38,6 +38,7 @@ public class SpringBoot01HelloworldQuickApplicationTests {
 				for (int i=0; i<files.length; i++) {
 					if (files[i].getName().contains(replaceStr)) {
 						File oldfile=new File(path+"\\"+files[i].getName());
+						System.out.println(oldfile);
 						File newfile=new File(path+"\\"+files[i].getName().replace(replaceStr, ""));
 						oldfile.renameTo(newfile);
 					}
